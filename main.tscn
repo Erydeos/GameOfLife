@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://ddrykv82e3xsu"]
+
+[ext_resource type="Script" uid="uid://ssiceiwr41uc" path="res://main.gd" id="1_h2yge"]
+[ext_resource type="PackedScene" uid="uid://dpsjvt1v0c5m4" path="res://hud.tscn" id="2_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://f1idy7kfvvcs" path="res://game_grid.tscn" id="3_lquwl"]
+
+[node name="Main" type="Node" unique_id=1091229087]
+script = ExtResource("1_h2yge")
+
+[node name="HUD" parent="." unique_id=1895287200 instance=ExtResource("2_1bvp3")]
+
+[node name="GameGrid" parent="." unique_id=1812676001 instance=ExtResource("3_lquwl")]
+
+[connection signal="random" from="HUD" to="." method="_on_hud_random"]
+[connection signal="reset" from="HUD" to="." method="_on_hud_reset"]
+[connection signal="step_change" from="HUD" to="." method="_on_hud_step_change"]
+[connection signal="pause_play" from="GameGrid" to="." method="_on_game_grid_pause_play"]
+[connection signal="update_step" from="GameGrid" to="." method="_on_game_grid_update_step"]
